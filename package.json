@@ -1,0 +1,15 @@
+{ 
+  "name": "news-site", 
+  "version": "1.0.0", 
+  "description": "�����⭮� ᠩ� - ��檮 �.�.", 
+  "main": "index.js", 
+  "scripts": { 
+    "dev": "next dev", 
+    "build": "next build", 
+    "start": "next start", 
+    "lint": "next lint" 
+  }, 
+  "keywords": ["news", "vue", "nodejs"], 
+  "author": "��檮 �.�.", 
+  "license": "MIT" 
+} 
