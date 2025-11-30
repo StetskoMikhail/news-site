@@ -1,44 +1,61 @@
-export default {
+'use strict';
+
+module.exports = {
   routes: [
+    // 🔥 КАСТОМНЫЕ ENDPOINTS - ДОЛЖНЫ БЫТЬ ПЕРВЫМИ!
     {
-      method: "POST",
-      path: "/articles",
-      handler: "article.create",
+      method: 'GET',
+      path: '/articles/featured',
+      handler: 'article.featured',
       config: {
-        policies: [],
-      },
+        auth: false
+      }
     },
     {
-      method: "GET",
-      path: "/articles",
-      handler: "article.find",
-      config: {
-        policies: [],
-      },
+      method: 'POST',
+      path: '/articles/:id/publish',
+      handler: 'article.publish'
     },
     {
-      method: "GET",
-      path: "/articles/:id",
-      handler: "article.findOne",
+      method: 'POST',
+      path: '/articles/:id/increment-views',
+      handler: 'article.incrementViews',
       config: {
-        policies: [],
-      },
+        auth: false
+      }
+    },
+    
+    // Базовые CRUD endpoints - ПОСЛЕ кастомных!
+    {
+      method: 'POST',
+      path: '/articles',
+      handler: 'article.create'
     },
     {
-      method: "PUT",
-      path: "/articles/:id",
-      handler: "article.update",
+      method: 'GET',
+      path: '/articles',
+      handler: 'article.find',
       config: {
-        policies: [],
-      },
+        auth: false
+      }
     },
     {
-      method: "DELETE",
-      path: "/articles/:id",
-      handler: "article.delete",
+      method: 'GET',
+      path: '/articles/:id',
+      handler: 'article.findOne',
       config: {
-        policies: [],
-      },
+        auth: false
+      }
     },
-  ],
+    {
+      method: 'PUT',
+      path: '/articles/:id',
+      handler: 'article.update'
+    },
+    {
+      method: 'DELETE',
+      path: '/articles/:id',
+      handler: 'article.delete'
+    }
+  ]
 };
